@@ -1,0 +1,9 @@
+<h1>Delete </h1>
+<p>Are you sure you want to delete {{ item.first_name }} </p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+
+<button><a href="{% url 'item_list' %}">View items</a></button>

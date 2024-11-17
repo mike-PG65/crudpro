@@ -1,0 +1,27 @@
+<h1>{% if item %} Update {{ item.first_name }} {% else %} Create {% endif %}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" id="first_name" value="{{ item.first_name|default:'' }}">
+    
+    <label for="second_name">Second Name</label>
+    <input type="text" name="second_name" id="second_name" value="{{ item.second_name|default:'' }}">
+    
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" value="{{ item.email|default:'' }}">
+    
+    <label for="phone">Phone</label>
+    <input type="text" name="phone" id="phone" value="{{ item.phone|default:'' }}">
+    
+    <label for="description">Description</label>
+    <textarea name="description" id="description">{{ item.description|default:'' }}</textarea>
+
+    <!-- <label for="image">Image</label>
+    <input type="file" name="image" id="image"> -->
+
+    <!-- {% if item and item.image %}
+    <p>Current Image: <img src="{{ item.image.url }}" alt="Current image" width="100"></p>
+    {% endif %} -->
+    
+    <button type="submit">Save</button>
